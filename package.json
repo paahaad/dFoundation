@@ -23,6 +23,7 @@
     "lucide-react": "^0.302.0",
     "next": "13.5.6",
     "next-themes": "^0.3.0",
+    "pdfjs-dist": "^4.10.38",
     "react": "^18",
     "react-dom": "^18",
     "sonner": "^1.4.41",

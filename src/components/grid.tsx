@@ -25,7 +25,7 @@ export function BentoGridSecondDemo() {
     <BentoGrid className="w-full mx-auto md:auto-rows-[20rem]">
       {items.map((item, i) => (
         <Link
-          href={`/paper/${i}`}
+          href={`/paper/${item.name}`}
           className="block w-full h-full"
           key={i}
         >
@@ -46,6 +46,7 @@ export function BentoGridSecondDemo() {
 const items = [
   {
     title: "Revolutionizing Finance",
+    name: "bitcoin",
     description:
       "The Bitcoin Foundation is the longest established Bitcoin advocacy organization in the world",
     header: <Bitcoin />,
@@ -55,6 +56,7 @@ const items = [
   {
     title: "The Future of Fast Finance",
     description: "Dive into the transformative power of technology.",
+    name: "solana",
     header: <Solana />,
     className: "md:col-span-1",
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
@@ -63,6 +65,7 @@ const items = [
     title: "The Smart Contract Pioneer",
     description:
       "Ethereum introduced programmable blockchain technology, enabling decentralized applications and innovation.",
+    name: "eth",
     header: <Eth />,
     className: "md:col-span-1",
     icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
@@ -72,6 +75,7 @@ const items = [
     description:
       "Uniswap empowers users with trustless, permissionless, and automated token swaps on Ethereum.",
     header: <Uniswap />,
+    name: "uniswap",
     className: "md:col-span-1",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
   },
@@ -79,6 +83,7 @@ const items = [
     title: "Bridging the Blockchain Gap",
     description:
       "Chainlink connects smart contracts with real-world data, ensuring trust and reliability.",
+    name: "chainlink",
     header: <Chainlink />,
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
@@ -87,6 +92,7 @@ const items = [
     title: "The Bridge for Global Payments",
     description:
       "XRP enables fast, low-cost, cross-border transactions, revolutionizing financial settlements.",
+    name:"xrp",
     header: <XRP />,
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
@@ -95,6 +101,7 @@ const items = [
     title: "Next-Gen Blockchain Performance",
     description:
       "Sui is a high-speed, low-latency blockchain designed for seamless digital asset ownership.",
+    name: "sui",
     header: <Sui />,
     className: "md:col-span-1",
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
@@ -103,6 +110,7 @@ const items = [
     title: "Revolutionizing Perpetual Trading",
     description:
       "Drift brings decentralized, high-performance perpetual futures trading to Solana with deep liquidity.",
+    name: "drif",
     header: <Drift />,
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
@@ -111,6 +119,7 @@ const items = [
     title: "Decentralizing the Web",
     description:
       "IPFS revolutionizes data storage with a peer-to-peer protocol for a more open internet.",
+    name: "ipfs",
     header: <IPFS />,
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
