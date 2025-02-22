@@ -3,13 +3,9 @@ import Link from "next/link";
 
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
 import {
-  IconClipboardCopy,
-  IconFileBroken,
   IconSignature,
-  IconTableColumn,
 } from "@tabler/icons-react";
 import Solana from "@/components/solana";
-import Drift from "@/components/drift";
 import Bitcoin from "@/components/bitcoin";
 import Uniswap from "@/components/uniswap";
 import Eth from "@/components/eth";
@@ -51,7 +47,7 @@ const items = [
       "The Bitcoin Foundation is the longest established Bitcoin advocacy organization in the world",
     header: <Bitcoin />,
     className: "md:col-span-1",
-    icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "The Future of Fast Finance",
@@ -59,7 +55,7 @@ const items = [
     name: "solana",
     header: <Solana />,
     className: "md:col-span-1",
-    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "The Smart Contract Pioneer",
@@ -68,7 +64,7 @@ const items = [
     name: "eth",
     header: <Eth />,
     className: "md:col-span-1",
-    icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Redefining Decentralized Trading",
@@ -77,7 +73,7 @@ const items = [
     header: <Uniswap />,
     name: "uniswap",
     className: "md:col-span-1",
-    icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
+    icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Bridging the Blockchain Gap",
@@ -103,15 +99,6 @@ const items = [
       "Sui is a high-speed, low-latency blockchain designed for seamless digital asset ownership.",
     name: "sui",
     header: <Sui />,
-    className: "md:col-span-1",
-    icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
-  },
-  {
-    title: "Revolutionizing Perpetual Trading",
-    description:
-      "Drift brings decentralized, high-performance perpetual futures trading to Solana with deep liquidity.",
-    name: "drif",
-    header: <Drift />,
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
