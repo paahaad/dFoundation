@@ -110,7 +110,7 @@ function Conversation() {
               className={cn(
                 "p-8 w-full flex items-start rounded-lg gap-x-8",
                 e.role === "user"
-                  ? "bg-white border border-black/10"
+                  ? "dark:bg-[#2b2b2b] bg-white border border-black/10"
                   : "bg-muted"
               )}
               key={e.content}

@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/tooltip";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ModeToggle } from "@/components/theme-toggle";
+import Link from "next/link";
 
 export default function RootLayout({
   children,
@@ -117,7 +118,9 @@ export default function RootLayout({
                 </aside>
                 <div className="flex flex-col">
                   <header className="sticky top-0 z-10 flex h-[57px] items-center gap-1 border-b bg-background px-4">
-                    <h1 className="text-xl font-semibold">dFoundation</h1>
+                    <Link href={"/"}>
+                      <h1 className="text-xl font-semibold">dFoundation</h1>
+                    </Link>
                     <Button
                       variant="outline"
                       size="sm"

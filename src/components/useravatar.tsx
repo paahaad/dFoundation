@@ -1,15 +1,13 @@
-import { useUser } from '@clerk/nextjs'
 import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { UserRound } from "lucide-react"
 
 function Useravatar() {
-    const { user } = useUser();
   return (
     <Avatar className="h-8 w-8">
-      <AvatarImage src={user?.profileImageUrl} />
+      <AvatarImage src={""} />
       <AvatarFallback>
-        {user?.firstName?.charAt(0)}
-        {user?.lastName?.charAt(0)}
+        <UserRound />
       </AvatarFallback>
     </Avatar>
   );

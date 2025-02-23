@@ -30,12 +30,12 @@ function page({ params: { id } }: { params: { id: string } }) {
               <span className="sr-only">Settings</span>
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="max-h-[80vh]">
+          <DrawerContent className="max-h-[80vh] overflow-y-auto">
             <Conversation />
           </DrawerContent>
         </Drawer>
       </div>
-      <div className="hidden md:block w-2/4 border p-4">
+      <div className="hidden md:block w-2/4 border p-4 overflow-y-auto">
         <Conversation />
       </div>
     </div>
