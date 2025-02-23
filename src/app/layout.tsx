@@ -30,13 +30,13 @@ export default function RootLayout({
         <body>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
             <TooltipProvider>
-              <div className="grid h-screen w-full pl-[56px]">
-                <aside className="inset-y fixed  left-0 z-20 flex h-full flex-col border-r">
+              <div className="grid h-screen w-full md:pl-[56px]">
+                <aside className="hidden md:flex inset-y fixed  left-0 z-20 h-full flex-col border-r">
                   <div className="border-b p-2">
                     <Button variant="outline" size="icon" aria-label="Home">
                       <Triangle className="size-5 fill-foreground" />
