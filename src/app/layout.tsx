@@ -97,7 +97,7 @@ export default function RootLayout({
                       </TooltipContent>
                     </Tooltip>
                   </nav>
-                  <nav className="mt-auto grid gap-1 p-2">
+                  {/* <nav className="mt-auto grid gap-1 p-2">
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <Button
@@ -128,7 +128,7 @@ export default function RootLayout({
                         Account
                       </TooltipContent>
                     </Tooltip>
-                  </nav>
+                  </nav> */}
                 </aside>
                 <div className="flex flex-col">
                   <header className="sticky top-0 z-10 flex h-[57px] items-center gap-1 border-b bg-background px-4">
