@@ -1,30 +1,20 @@
 import { NextResponse } from "next/server";
-// const configuration = new Configuration({
-//   apiKey: process.env.OPEN_AI_KEY,
-// });
-
-// const openai = new OpenAIApi(configuration);
+import { GoogleGenerativeAI, Part } from "@google/generative-ai";
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
+const model = genAI.getGenerativeModel({ model: "models/gemini-1.5-flash" });
+import fs from "fs";
+import path from "path";
 
 export async function POST(req: Request) {
   try {
-    // const { userId } = auth();
     const body = await req.json();
-    console.log("This is body", body);
-    const { messages } = body;
+    const { messages, protocol } = body;
 
-    // if (!userId) {
-    //   return new NextResponse("Unauthorized", { status: 401 });
-    // }
-
-    // if (!configuration.apiKey) {
-    //   return new NextResponse("OpenAI API Key not configured.", {
-    //     status: 500,
-    //   });
-    // }
-
-    // if (!messages) {
-    //   return new NextResponse("Messages are required", { status: 400 });
-    // }
+    if (!messages && !protocol) {
+      return new NextResponse("Messages and protocol are required", {
+        status: 400,
+      });
+    }
 
     // const freeTrail = await checkApiLimit();
     // if (!freeTrail) {
@@ -33,16 +23,32 @@ export async function POST(req: Request) {
     //   });
     // }
 
-    // const response = await openai.createChatCompletion({
-    //   model: "gpt-3.5-turbo",
-    //   messages,
-    // });
+    const pdfPath = path.join(
+      process.cwd(),
+      "public",
+      "papers",
+      `${protocol}.pdf`
+    );
 
-    // await increaseApiLimit();
-    // return NextResponse.json(response.data.choices[0].message)
+    const parts: Part[] = [
+      {
+        inlineData: {
+          data: Buffer.from(fs.readFileSync(pdfPath)).toString("base64"),
+          mimeType: "application/pdf",
+        },
+      },
+      {
+        text: messages.at(-1).content,
+      }
+    ];
+    const result = await model.generateContent({
+      contents: [{ role: "user", parts: parts }],
+    });
+
+    console.log("===>", result.response.text());
 
     return NextResponse.json({
-      content: "AI Integration is still pending.",
+      content: result.response.text(),
     });
   } catch (error) {
     console.log("[CONVERSATION_ERROR]", error);

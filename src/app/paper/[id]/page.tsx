@@ -6,9 +6,6 @@ import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
@@ -31,12 +28,12 @@ function page({ params: { id } }: { params: { id: string } }) {
             </Button>
           </DrawerTrigger>
           <DrawerContent className="max-h-[80vh] overflow-y-auto">
-            <Conversation />
+            <Conversation protocol={id}/>
           </DrawerContent>
         </Drawer>
       </div>
       <div className="hidden md:block w-2/4 border p-4 overflow-y-auto">
-        <Conversation />
+        <Conversation protocol={id}/>
       </div>
     </div>
   );

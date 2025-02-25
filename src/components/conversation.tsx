@@ -1,6 +1,12 @@
 "use client";
 import Heading from "@/components/heading";
-import { FormControl, FormField, FormItem, Form, FormMessage } from "@/components/ui/form";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  Form,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Empty from "@/components/empty";
@@ -13,15 +19,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import ReactMarkdown from "react-markdown";
+
 import Loader from "@/components/loader";
 import { cn } from "@/lib/utils";
 import Useravatar from "@/components/useravatar";
 import BotAvatar from "@/components/botavatar";
 // import { useProModal } from "@/hooks/use-pro-modal";
-function Conversation() {
+function Conversation({ protocol }: { protocol: string }) {
   const router = useRouter();
   const [message, setMessage] = useState<any[]>([]);
-//   const useModal =useProModal()
+  //   const useModal =useProModal()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,20 +48,18 @@ function Conversation() {
 
       const response = await axios.post("/api/conversation", {
         messages: newMessage,
+        protocol: protocol,
       });
-      console.log(response);
 
       setMessage((current) => [...current, userMessage, response.data]);
-      // [{role:"user",content:"cannot find"},{content:"raduius 6lkh"}]
 
-      setTimeout(() => console.log(message), 1000);
-    } catch (e:any) {
-      if(e?.response?.status === 403){
-        // TODO:   useModal.onOpen()
-
+    } catch (e: any) {
+      if (e?.response?.status === 403) {
+        // TODO:
       }
     } finally {
-      router.refresh()
+      form.reset()
+      router.refresh();
     }
   };
   const loading = form.formState.isSubmitting;
@@ -116,7 +122,25 @@ function Conversation() {
               key={e.content}
             >
               {e.role === "user" ? <Useravatar /> : <BotAvatar />}
-              <p className="text-sm">{e.content}</p>
+              <div className="text-sm overflow-hidden leading-7">
+                <ReactMarkdown
+                  components={{
+                    pre: ({ node, ...props }) => (
+                      <div className="overflow-auto w-full m-y-2 bg-black/10 p-2 rounded-lg">
+                        <pre {...props} />
+                      </div>
+                    ),
+                    code: ({ node, ...props }) => (
+                      <code
+                        className="bg-black/10 rounded-lg px-1"
+                        {...props}
+                      />
+                    ),
+                  }}
+                >
+                  {e.content || ""}
+                </ReactMarkdown>
+              </div>
             </div>
           ))}
         </div>
