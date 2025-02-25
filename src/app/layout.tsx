@@ -4,6 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { Github } from "lucide-react";
 
 import { toast } from "sonner";
 
@@ -18,6 +19,7 @@ import {
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ModeToggle } from "@/components/theme-toggle";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function RootLayout({
   children,
@@ -27,7 +29,19 @@ export default function RootLayout({
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
+        <Head>
+          <title>Protocals</title>
+          <meta
+            name="description"
+            content="Explore decentralized protocols like Bitcoin, Ethereum, Solana, Sui, IPFS, and more. Learn about blockchain and smart contract platforms."
+          />
+          <meta
+            name="keywords"
+            content="Bitcoin, Ethereum, Solana, Sui, IPFS, Blockchain, Decentralized Protocols, Crypto"
+          />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
         <body>
           <ThemeProvider
             attribute="class"
@@ -119,7 +133,7 @@ export default function RootLayout({
                 <div className="flex flex-col">
                   <header className="sticky top-0 z-10 flex h-[57px] items-center gap-1 border-b bg-background px-4">
                     <Link href={"/"}>
-                      <h1 className="text-xl font-semibold">dFoundation</h1>
+                      <h1 className="text-xl font-semibold">Protocols</h1>
                     </Link>
                     <Button
                       variant="outline"
@@ -144,6 +158,11 @@ export default function RootLayout({
                       <Share className="size-3.5" />
                       Share
                     </Button>
+                    <Link href={"https://github.com/paahaad/protocals.xyz"} target="_blank">
+                      <Button variant="outline" size="sm">
+                        <Github />
+                      </Button>
+                    </Link>
                     <ModeToggle />
                   </header>
                   <main className="overflow-auto p-4 w-full">{children}</main>

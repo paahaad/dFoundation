@@ -104,7 +104,7 @@ function Conversation() {
           </div>
         )}
         {message.length === 0 && !loading && <Empty label="Start Typing.." />}
-        <div className="flex flex-col-reverse gap-y-4">
+        <div className="flex flex-col-reverse gap-y-4 p-2">
           {message.map((e) => (
             <div
               className={cn(
