@@ -5,7 +5,7 @@ interface Emptyprops {
 
 function Empty({label}:Emptyprops) {
     return (
-      <div className="hidden h-full p-20 md:flex flex-col items-center justify-center">
+      <div className="h-full p-20 flex flex-col items-center justify-center">
         <div className="relative h-72 w-72 ">
             <Image
             alt="empty"
