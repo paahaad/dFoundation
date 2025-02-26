@@ -8,6 +8,7 @@ import {
   DrawerContent,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 import Conversation from "@/components/conversation";
 
