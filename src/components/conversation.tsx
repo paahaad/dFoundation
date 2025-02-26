@@ -105,7 +105,7 @@ function Conversation({ protocol }: { protocol: string }) {
       </div>
       <div className="space-y-4 mt-4 ">
         {loading && (
-          <div className="p-8 rounded-lg w-full bg-muted flex items-center justify-center">
+          <div className="p-12 md:p-8 rounded-lg w-full bg-muted flex items-center justify-center">
             <Loader />
           </div>
         )}

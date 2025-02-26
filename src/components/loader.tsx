@@ -11,7 +11,7 @@ function Loader() {
         fill
         />
       </div>
-      <p className="text-sm text-muted-foreground">Genuis is thinking...</p>
+      <p className="text-sm text-muted-foreground">Navigator is thinking...</p>
     </div>
   );
 }
