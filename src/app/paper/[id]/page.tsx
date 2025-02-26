@@ -29,7 +29,7 @@ function page({ params: { id } }: { params: { id: string } }) {
             </Button>
           </DrawerTrigger>
           <DrawerContent className="max-h-[80vh]">
-            <ScrollArea className="p-4 max-h-[60vh] overflow-auto">
+            <ScrollArea className="h-full w-full overflow-auto">
               <Conversation protocol={id}/>
             </ScrollArea>
           </DrawerContent>
