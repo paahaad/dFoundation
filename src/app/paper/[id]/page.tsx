@@ -27,7 +27,7 @@ function page({ params: { id } }: { params: { id: string } }) {
               <span className="sr-only">Settings</span>
             </Button>
           </DrawerTrigger>
-          <DrawerContent className="max-h-[80vh] overflow-y-auto">
+          <DrawerContent className="max-h-[80vh] overflow-y-auto sm:max-h-[90vh]">
             <Conversation protocol={id}/>
           </DrawerContent>
         </Drawer>
